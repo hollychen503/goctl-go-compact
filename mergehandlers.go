@@ -20,7 +20,8 @@ import (
 	"github.com/tal-tech/go-zero/tools/goctl/api/spec"
 
 	"github.com/tal-tech/go-zero/tools/goctl/plugin"
-	util2 "github.com/tal-tech/go-zero/tools/goctl/util"
+	//util2 "github.com/tal-tech/go-zero/tools/goctl/util"
+	"github.com/tal-tech/go-zero/tools/goctl/util/pathx"
 	"github.com/tal-tech/go-zero/tools/goctl/util/ctx"
 	"github.com/tal-tech/go-zero/tools/goctl/util/format"
 	"go.etcd.io/etcd/pkg/fileutil"
@@ -144,7 +145,7 @@ func gen(folder string, group spec.Group, dir, nameStyle string) error {
 	}
 	defer fp.Close()
 
-	text, err := util2.LoadTemplate("api", "handlers.tpl", handlerTemplate)
+	text, err := pathx.LoadTemplate("api", "handlers.tpl", handlerTemplate)
 	if err != nil {
 		return err
 	}
